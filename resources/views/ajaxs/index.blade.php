@@ -60,7 +60,7 @@
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
-        // Add Product Modal Open
+    // Add Product Modal Open
     $('#addProductBtn').click(function() {
         $('#modalTitle').text('Add Product');
         $('#productForm')[0].reset();
@@ -116,7 +116,7 @@
 
     // Edit Product
     function editProduct(id) {
-        $.get(`/products/${id}/edit`, function(response) {
+        $.get(`/ajaxs/products/${id}/edit`, function(response) {
             $('#modalTitle').text('Edit Product');
             $('#productId').val(response.id);
             $('#name').val(response.name);
@@ -130,7 +130,7 @@
     function deleteProduct(id) {
         if (confirm('Are you sure you want to delete this product?')) {
             $.ajax({
-                url: `/products/${id}`,
+                url: `/ajaxs/products/${id}`,
                 method: 'DELETE',
                 success: function(response) {
                     $(`#product${id}`).remove();
