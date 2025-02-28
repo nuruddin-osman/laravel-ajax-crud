@@ -12,7 +12,8 @@ class AjaxController extends Controller
      */
     public function index()
     {
-        //
+        $products = Ajax::all();
+        return view('ajaxs.index', compact('products'))->render();
     }
 
     /**
@@ -28,13 +29,14 @@ class AjaxController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product = Ajax::create($request->all());
+        return response()->json($product);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Ajax $ajax)
+    public function show( $id)
     {
         //
     }
@@ -42,24 +44,31 @@ class AjaxController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Ajax $ajax)
+    public function edit($id)
     {
-        //
+        $product = Ajax::find($id);
+        return response()->json($product);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Ajax $ajax)
+    public function update(Request $request,  $id)
     {
-        //
+        $product = Ajax::find($id);
+        $product->update($request->all());
+        return response()->json($product);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Ajax $ajax)
+    public function destroy( $id)
     {
-        //
+        $product = Ajax::find($id);
+        $product->delete();
+        return response()->json($product);
+        // Ajax::destroy($id);
+        // return response()->json(['success' => 'Product deleted successfully.']);
     }
 }
