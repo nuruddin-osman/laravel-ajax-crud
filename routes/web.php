@@ -18,12 +18,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/ajaxs/index', [AjaxController::class, 'index'])->name('ajaxs.index');
+Route::get('/ajaxs/index',[AjaxController::class,'index'])->name('ajaxs.index');
+Route::post('/ajaxs/index',[AjaxController::class,'store'])->name('ajaxs.store');
+Route::get('/ajaxs/index/{id}/edit',[AjaxController::class,'edit'])->name('ajaxs.edit');
+Route::put('/ajaxs/index/{id}', [AjaxController::class, 'update'])->name('ajaxs.update');
+Route::delete('/ajaxs/index/{id}',[AjaxController::class,'destroy'])->name('ajaxs.destroy');
 
-Route::post('/ajaxs/products', [AjaxController::class, 'store'])->name('products.store');
-Route::get('/ajaxs/products/{id}/edit', [AjaxController::class, 'edit'])->name('products.edit');
-Route::put('/ajaxs/products/{id}', [AjaxController::class, 'update'])->name('products.update');
-Route::delete('/ajaxs/products/{id}', [AjaxController::class, 'destroy'])->name('products.destroy');
+
 
 
 require __DIR__.'/auth.php';

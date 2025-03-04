@@ -14,8 +14,18 @@ return new class extends Migration
         Schema::create('ajaxes', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('description')->nullable();
-            $table->decimal('price', 8, 2);
+            $table->string('title');
+            $table->string('description')->nullable();
+            $table->string('price')->nullable();
+            $table->string('category')->nullable();
+            $table->string('quantity')->nullable();
+            $table->string('discount')->nullable();
+            $table->string('status')->nullable();
+            $table->string('featured')->nullable();
+            $table->string('trending')->nullable();
+            $table->string('meta_title')->nullable();
+            $table->string('meta_keyword')->nullable();
+            $table->string('meta_description')->nullable();
             $table->timestamps();
         });
     }

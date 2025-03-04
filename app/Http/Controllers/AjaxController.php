@@ -13,7 +13,7 @@ class AjaxController extends Controller
     public function index()
     {
         $products = Ajax::all();
-        return view('ajaxs.index', compact('products'))->render();
+        return view('ajaxs.index', compact('products'));
     }
 
     /**
@@ -68,7 +68,5 @@ class AjaxController extends Controller
         $product = Ajax::find($id);
         $product->delete();
         return response()->json($product);
-        // Ajax::destroy($id);
-        // return response()->json(['success' => 'Product deleted successfully.']);
     }
 }
