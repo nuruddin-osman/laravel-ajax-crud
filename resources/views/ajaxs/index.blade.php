@@ -7,25 +7,25 @@
             <div class="">
                 <button id="addProductBtn" class="p-3 text-xl bg-orange-500 rounded-md">Add Button</button>
             </div>
-            <table>
-                <thead class="w-full">
-                    <tr class="w-full">
-                        <th class="px-5 border">
+            <table  class="mt-5 w-full border-collapse">
+                <thead>
+                    <tr>
+                        <th class="px-5 text-left border">
                             <p class="text-lg font-bold text-[#2d2d2d]">Name</p>
                         </th>
-                        <th class="px-5 border">
+                        <th class="px-5 text-left border">
                             <p class="text-lg font-bold text-[#2d2d2d]">Title</p>
                         </th>
-                        <th class="px-5 border">
+                        <th class="px-5 text-left border">
                             <p class="text-lg font-bold text-[#2d2d2d]">Description</p>
                         </th>
-                        <th class="px-5 border">
+                        <th class="px-5 text-left border">
                             <p class="text-lg font-bold text-[#2d2d2d]">Price</p>
                         </th>
-                        <th class="px-5 border">
+                        <th class="px-5 text-left border">
                             <p class="text-lg font-bold text-[#2d2d2d]">category</p>
                         </th>
-                        <th class="px-5 border">
+                        <th class="px-5 text-left border">
                             <p class="text-lg font-bold text-[#2d2d2d]">Action</p>
                         </th>
                     </tr>
@@ -33,24 +33,24 @@
                 <tbody id="tbody">
                     @foreach ($products as $product)
                         <tr>
-                            <td>
+                            <td class="px-5 text-left border">
                                 <p>{{$product->name}}</p>
                             </td>
-                            <td>
+                            <td class="px-5 text-left border">
                                 <p>{{$product->title}}</p>
                             </td>
-                            <td>
+                            <td class="px-5 text-left border">
                                 <p>{{$product->description}}</p>
                             </td>
-                            <td>
+                            <td class="px-5 text-left border">
                                 <p>{{$product->price}}</p>
                             </td>
-                            <td>
+                            <td class="px-5 text-left border">
                                 <p>{{$product->category}}</p>
                             </td>
-                            <td>
-                                <button onclick="editProduct({{$product->id}})" class="p-3 text-xl bg-green-500 rounded-md">Edit</button>
-                                <button onclick="deleteProduct({{$product->id}})" class="p-3 text-xl bg-red-500 rounded-md">Delete</button>
+                            <td class="flex gap-5 px-2 py-1 border">
+                                <button onclick="editProduct({{$product->id}})" class="px-3 py-1 text-base bg-green-500 rounded-md border-none">Edit</button>
+                                <button onclick="deleteProduct({{$product->id}})" class="px-3 py-1 text-base bg-red-500 rounded-md border-none">Delete</button>
                             </td>
                         </tr>
                     @endforeach
@@ -132,47 +132,47 @@
                         if (method == 'POST') {
                             $('#tbody').append(`
                                 <tr  id="product${response.id}">
-                                    <td>
+                                    <td class="px-5 text-left border">
                                         <p>${response.name}</p>
                                     </td>
-                                    <td>
+                                    <td class="px-5 text-left border">
                                         <p>${response.title}</p>
                                     </td>
-                                    <td>
+                                    <td class="px-5 text-left border">
                                         <p>${response.description}</p>
                                     </td>
-                                    <td>
+                                    <td class="px-5 text-left border">
                                         <p>${response.price}</p>
                                     </td>
-                                    <td>
+                                    <td class="px-5 text-left border">
                                         <p>${response.category}</p>
                                     </td>
-                                    <td>
-                                        <button onclick="editProduct(${response.id})" class="p-3 text-xl bg-green-500 rounded-md">Edit</button>
-                                        <button onclick="deleteProduct(${response.id})" class="p-3 text-xl bg-red-500 rounded-md">Delete</button>
+                                    <td class="flex gap-5 px-2 py-1 border">
+                                        <button onclick="editProduct(${response.id})" class="px-3 py-1 text-base bg-green-500 rounded-md border-none">Edit</button>
+                                        <button onclick="deleteProduct(${response.id})" class="px-3 py-1 text-base bg-red-500 rounded-md border-none">Delete</button>
                                     </td>
                                 </tr>
                             `)
                         }else{
                             $(`#product${response.id}`).html(`
-                                <td>
+                                <td class="px-5 text-left border">
                                     <p>${response.name}</p>
                                 </td>
-                                <td>
+                                <td class="px-5 text-left border">
                                     <p>${response.title}</p>
                                 </td>
-                                <td>
+                                <td class="px-5 text-left border">
                                     <p>${response.description}</p>
                                 </td>
-                                <td>
+                                <td class="px-5 text-left border">
                                     <p>${response.price}</p>
                                 </td>
-                                <td>
+                                <td class="px-5 text-left border">
                                     <p>${response.category}</p>
                                 </td>
-                                <td>
-                                    <button onclick="editProduct(${response.id})" class="p-3 text-xl bg-green-500 rounded-md">Edit</button>
-                                    <button onclick="deleteProduct(${response.id})" class="p-3 text-xl bg-red-500 rounded-md">Delete</button>
+                                <td class="flex gap-5 px-2 py-1 border">
+                                    <button onclick="editProduct(${response.id})" class="px-3 py-1 text-base bg-green-500 rounded-md border-none">Edit</button>
+                                    <button onclick="deleteProduct(${response.id})" class="px-3 py-1 text-base bg-red-500 rounded-md border-none">Delete</button>
                                 </td>
                             `)
                         }
